@@ -8,3 +8,7 @@
     min-height: 300px;
     margin: 150px auto;
 }
+
+button {
+    margin: 10px 0;
+}
