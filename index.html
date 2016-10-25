@@ -8,7 +8,6 @@
 <body>
 <div class="container">
     <button onclick="setWord()">POKA SLOWO</button>
-    <br><button onclick="checkLetter()">sprawdz literke</button>
     <br><label><input maxlength="1" id="text" type="text"></label>
 
     <div id="here"></div>
@@ -19,7 +18,9 @@
 </div>
 <script>
     var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
+    var booleanArray = [];
     var characterArray = ['a', 'b', 'c'];
+    var wordToDisplay;
     var wordToGuess;
 
     function getLetter(div) {
@@ -33,19 +34,11 @@
         wordToGuess = wordsArray[Math.floor(Math.random() * 9)];
         console.log(wordToGuess);
         for(var i = 0; i < wordToGuess.length; i++) {
-            dupa.innerHTML += "_ ";
+            dupa.innerHTML += "_";
+            booleanArray[i] = false;
         }
     }
 
-    function checkLetter() {
-        var chuj = document.getElementById("text").value;
-        for(var i = 0; i < wordToGuess.length; i++) {
-            if(wordToGuess.charAt(i) == chuj) {
-                console.log("zgadnieta literka");
-                return;
-            }
-        }
-    }
 
 </script>
 </body>
