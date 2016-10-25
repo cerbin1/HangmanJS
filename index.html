@@ -14,6 +14,7 @@
 
     <div id="0" onclick="getLetter(this)" class="letter">A</div>
     <div id="1" onclick="getLetter(this)" class="letter">B</div>
+    <div id="2" onclick="getLetter(this)" class="letter">C</div>
 
 </div>
 <script>
@@ -22,18 +23,22 @@
     var characterArray = ['a', 'b', 'c'];
     var wordToDisplay = "";
     var wordToGuess;
+    var fails = 0;
 
     function getLetter(div) {
         div.style.display = "none";
         var number = parseInt(div.id);
         console.log(characterArray[number]);
-        checkWord(characterArray[number]);
+        if(!checkWord(characterArray[number])) {
+            fails++;
+            console.log("Wysiadki: " + fails);
+        }
         displayWord();
     }
 
     function setWord() {
         var dupa = document.getElementById("here");
-        wordToGuess = "zyrafa"; //TODO random word from an array/file
+        wordToGuess = "abcabc"; //TODO random word from an array/file
         for (var i = 0; i < wordToGuess.length; i++) {
             dupa.innerHTML += "_ ";
             booleanArray[i] = false;
@@ -41,18 +46,22 @@
     }
 
     function checkWord(character) {
+        var booleanVariable = false;
         for (var i = 0; i < wordToGuess.length; i++) {
             if (wordToGuess.charAt(i) === character) {
                 console.log(i);
                 booleanArray[i] = true;
+                booleanVariable = true;
             }
             else {
                 console.log("dupa");
             }
         }
+        return booleanVariable;
     }
 
     function displayWord() {
+        wordToDisplay = "";
         for (var i = 0; i < wordToGuess.length; i++) {
             if(booleanArray[i]) {
                 wordToDisplay += wordToGuess.charAt(i) + " ";
