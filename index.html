@@ -27,17 +27,32 @@
         div.style.display = "none";
         var number = parseInt(div.id);
         console.log(characterArray[number]);
+        checkWord(characterArray[number]);
     }
 
     function setWord() {
         var dupa = document.getElementById("here");
         wordToGuess = wordsArray[Math.floor(Math.random() * 9)];
         console.log(wordToGuess);
-        for(var i = 0; i < wordToGuess.length; i++) {
+        for (var i = 0; i < wordToGuess.length; i++) {
             dupa.innerHTML += "_ ";
             booleanArray[i] = false;
         }
     }
+
+    function checkWord(character) {
+        for (var i = 0; i < wordToGuess.length; i++) {
+            if (wordToGuess.charAt(i) === character) {
+                console.log(i);
+                booleanArray[i] = true;
+            }
+            else {
+                console.log("dupa");
+            }
+        }
+    }
+
+
 
 
 </script>
