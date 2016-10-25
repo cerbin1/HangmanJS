@@ -13,12 +13,20 @@
 
     <div id="here"></div>
 
+    <div id="0" onclick="getLetter(this)" class="letter">A</div>
+    <div id="1" onclick="getLetter(this)" class="letter">B</div>
+
 </div>
 <script>
     var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
+    var characterArray = ['a', 'b', 'c'];
     var wordToGuess;
 
-
+    function getLetter(div) {
+        div.style.display = "none";
+        var number = parseInt(div.id);
+        console.log(characterArray[number]);
+    }
 
     function setWord() {
         var dupa = document.getElementById("here");

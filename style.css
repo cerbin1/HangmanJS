@@ -12,3 +12,11 @@
 button {
     margin: 10px 0;
 }
+
+.letter {
+    font-size: 30px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    float: left;
+    margin: 5px;
+}
