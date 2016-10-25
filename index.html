@@ -28,6 +28,7 @@
         var number = parseInt(div.id);
         console.log(characterArray[number]);
         checkWord(characterArray[number]);
+        displayWord();
     }
 
     function setWord() {
@@ -52,7 +53,17 @@
         }
     }
 
-
+    function displayWord() {
+        for (var i = 0; i < wordToGuess.length; i++) {
+            if(booleanArray[i]) {
+                wordToDisplay += wordToGuess.charAt(i) + " ";
+            }
+            else {
+                wordToDisplay += "_ ";
+            }
+        }
+        document.getElementById("here").innerHTML = wordToDisplay;
+    }
 
 
 </script>
