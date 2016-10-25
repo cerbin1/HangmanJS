@@ -20,7 +20,7 @@
     var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
     var booleanArray = [];
     var characterArray = ['a', 'b', 'c'];
-    var wordToDisplay;
+    var wordToDisplay = "";
     var wordToGuess;
 
     function getLetter(div) {
@@ -57,12 +57,14 @@
         for (var i = 0; i < wordToGuess.length; i++) {
             if(booleanArray[i]) {
                 wordToDisplay += wordToGuess.charAt(i) + " ";
+                console.log(wordToDisplay);
             }
             else {
                 wordToDisplay += "_ ";
             }
         }
         document.getElementById("here").innerHTML = wordToDisplay;
+        console.log(wordToDisplay);
     }
 
 
