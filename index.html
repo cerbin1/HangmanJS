@@ -40,7 +40,7 @@
 
 </div>
 <script>
-    //var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
+    var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
     var hangmanImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png"];
     var letterGuess = [];
     var characterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'y', 'z'];
@@ -75,7 +75,7 @@
 
     function setWord() {
         var divForDisplayWordToGuess = document.getElementById("divForDisplayWordToGuess");
-        wordToGuess = "dawdawdwa"; // random word from an array/file
+        wordToGuess = wordsArray[Math.round(Math.random() * 10)];
         for (var i = 0; i < wordToGuess.length; i++) {
             divForDisplayWordToGuess.innerHTML += "_ ";
             letterGuess[i] = false;
