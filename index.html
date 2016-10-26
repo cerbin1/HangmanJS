@@ -14,6 +14,7 @@
     <div id="0" onclick="getLetter(this)" class="letter">A</div>
     <div id="1" onclick="getLetter(this)" class="letter">B</div>
     <div id="2" onclick="getLetter(this)" class="letter">C</div>
+    <img src="dd.png" alt="dd">
 
 </div>
 <script>
@@ -26,9 +27,8 @@
 
     function getLetter(div) {
         div.style.display = "none";
-        var number = parseInt(div.id);
-        console.log(characterArray[number]);
-        if(!checkWord(characterArray[number])) {
+        console.log(characterArray[parseInt(div.id)]);
+        if(!checkWord(characterArray[parseInt(div.id)])) {
             fails++;
             console.log("Wysiadki: " + fails);
         }
