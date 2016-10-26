@@ -9,9 +9,12 @@
 <div class="container">
     <button onclick="location.reload()">Nowe slowo</button>
 
+    <h1>Wywal console.log()</h1>
+
     <div id="divForDisplayWordToGuess"></div>
 
     <div class="div-letters">
+        <!-- TODO to powinno być wygenerowane -->
         <div id="0" onclick="checkLetter(this)" class="letter">a</div>
         <div id="1" onclick="checkLetter(this)" class="letter">b</div>
         <div id="2" onclick="checkLetter(this)" class="letter">c</div>
@@ -40,20 +43,22 @@
 
 </div>
 <script>
-    var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
+    // Lepiej żeby to nie były funkcje globalne. Np w samowywołującej się funkcji.
+
+    var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"]; // TODO rename to "words"
     var hangmanImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png"];
-    var letterGuess = [];
-    var characterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'y', 'z'];
+    var letterGuess = []; // TODO rename to guessedLetters
+    var characterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'y', 'z']; // TODO rename to characters
     var usersWordToGuess = "";
     var wordToGuess;
     var fails = 0;
     var endOfGame = false;
 
     function checkLetter(div) {
-        if (!endOfGame) {
+        if (!endOfGame) { // TODO jak masz ifa i elsa to lepiej żeby nie było negacji
             div.style.display = "none";
             console.log(characterArray[parseInt(div.id)]);
-            if (!isLetterInGuessedWord(characterArray[parseInt(div.id)])) {
+            if (!isLetterInGuessedWord(characterArray[parseInt(div.id)])) { // TODO lepiej żeby nie było negacji jak jest if i else
                 fails++;
                 document.getElementById("hangmanImage").src = hangmanImages[fails - 1];
                 console.log("Wysiadki: " + fails);
@@ -64,7 +69,7 @@
                 displayGuessedLetters();
             }
             else {
-                displayGuessedLetters();
+                displayGuessedLetters(); // TODO po co w elsie skoro i tak wykonujesz
             }
             if (checkIfWin()) {
                 document.getElementById("divForDisplayWordToGuess").innerHTML = "Wygrales! Haslo: " + wordToGuess;
@@ -86,11 +91,11 @@
     }
 
     function isLetterInGuessedWord(character) {
-        var booleanVariable = false;
+        var booleanVariable = false; // TODO co to za chujowa nazwa XDDDDD
         for (var i = 0; i < wordToGuess.length; i++) {
             if (wordToGuess.charAt(i) === character) {
                 letterGuess[i] = true;
-                booleanVariable = true;
+                booleanVariable = true; // TODO to mógłbyś po prostu return true;
             }
             else {
                 console.log("Nie znaleziono literki w slowie");
@@ -125,6 +130,7 @@
         }
         return true;
     }
+
 
 
 </script>
