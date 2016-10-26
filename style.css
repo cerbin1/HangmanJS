@@ -4,9 +4,16 @@
 }
 
 .container {
-    width: 500px;
+    width: 700px;
     min-height: 300px;
     margin: 100px auto;
+}
+
+#divForDisplayWordToGuess {
+    margin: 20px;
+    height: 60px;
+    font-size: 40px;
+    text-align: center;
 }
 
 button {
@@ -14,9 +21,20 @@ button {
 }
 
 .letter {
-    font-size: 30px;
+    font-size: 40px;
     cursor: pointer;
     font-family: Arial, sans-serif;
     float: left;
-    margin: 5px;
+    padding: 5px 10px;
+    width: 35px;
+    text-align: center;
+}
+
+.letter:hover {
+    background-color: darkgray;
+}
+
+.div-letters {
+    height: 110px;
+    border: 1px solid black;
 }
