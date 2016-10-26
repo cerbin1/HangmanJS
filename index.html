@@ -58,13 +58,13 @@
                 document.getElementById("hangmanImage").src = hangmanImages[fails - 1];
                 console.log("Wysiadki: " + fails);
                 if (checkIfPlayerLose()) {
-                    console.log("Przegrana");
+                    alert("Przegrales :(");
                     endOfGame = true;
                 }
             }
             displayGuessedLetters();
             if (checkIfWin()) {
-                console.log("wygrales");
+                alert("Wygrales! :)");
                 endOfGame = true;
             }
         }
