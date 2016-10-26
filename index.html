@@ -11,30 +11,31 @@
 
     <div id="divForDisplayWordToGuess"></div>
 
-    <div id="0" onclick="checkLetter(this)" class="letter">A</div>
-    <div id="1" onclick="checkLetter(this)" class="letter">B</div>
-    <div id="2" onclick="checkLetter(this)" class="letter">C</div>
-    <div id="3" onclick="checkLetter(this)" class="letter">D</div>
-    <div id="4" onclick="checkLetter(this)" class="letter">E</div>
-    <div id="5" onclick="checkLetter(this)" class="letter">F</div>
-    <div id="6" onclick="checkLetter(this)" class="letter">G</div>
-    <div id="7" onclick="checkLetter(this)" class="letter">H</div>
-    <div id="8" onclick="checkLetter(this)" class="letter">I</div>
-    <div id="9" onclick="checkLetter(this)" class="letter">J</div>
-    <div id="10" onclick="checkLetter(this)" class="letter">K</div>
-    <div id="11" onclick="checkLetter(this)" class="letter">L</div>
-    <div id="12" onclick="checkLetter(this)" class="letter">M</div>
-    <div id="13" onclick="checkLetter(this)" class="letter">N</div>
-    <div id="14" onclick="checkLetter(this)" class="letter">O</div>
-    <div id="15" onclick="checkLetter(this)" class="letter">P</div>
-    <div id="16" onclick="checkLetter(this)" class="letter">R</div>
-    <div id="17" onclick="checkLetter(this)" class="letter">S</div>
-    <div id="18" onclick="checkLetter(this)" class="letter">T</div>
-    <div id="19" onclick="checkLetter(this)" class="letter">U</div>
-    <div id="20" onclick="checkLetter(this)" class="letter">W</div>
-    <div id="21" onclick="checkLetter(this)" class="letter">Y</div>
-    <div id="22" onclick="checkLetter(this)" class="letter">Z</div>
-
+    <div class="letters">
+        <div id="0" onclick="checkLetter(this)" class="letter">A</div>
+        <div id="1" onclick="checkLetter(this)" class="letter">B</div>
+        <div id="2" onclick="checkLetter(this)" class="letter">C</div>
+        <div id="3" onclick="checkLetter(this)" class="letter">D</div>
+        <div id="4" onclick="checkLetter(this)" class="letter">E</div>
+        <div id="5" onclick="checkLetter(this)" class="letter">F</div>
+        <div id="6" onclick="checkLetter(this)" class="letter">G</div>
+        <div id="7" onclick="checkLetter(this)" class="letter">H</div>
+        <div id="8" onclick="checkLetter(this)" class="letter">I</div>
+        <div id="9" onclick="checkLetter(this)" class="letter">J</div>
+        <div id="10" onclick="checkLetter(this)" class="letter">K</div>
+        <div id="11" onclick="checkLetter(this)" class="letter">L</div>
+        <div id="12" onclick="checkLetter(this)" class="letter">M</div>
+        <div id="13" onclick="checkLetter(this)" class="letter">N</div>
+        <div id="14" onclick="checkLetter(this)" class="letter">O</div>
+        <div id="15" onclick="checkLetter(this)" class="letter">P</div>
+        <div id="16" onclick="checkLetter(this)" class="letter">R</div>
+        <div id="17" onclick="checkLetter(this)" class="letter">S</div>
+        <div id="18" onclick="checkLetter(this)" class="letter">T</div>
+        <div id="19" onclick="checkLetter(this)" class="letter">U</div>
+        <div id="20" onclick="checkLetter(this)" class="letter">W</div>
+        <div id="21" onclick="checkLetter(this)" class="letter">Y</div>
+        <div id="22" onclick="checkLetter(this)" class="letter">Z</div>
+    </div>
     <img src="0.png" alt="error" id="hangmanImage">
 
 </div>
@@ -74,7 +75,7 @@
 
     function setWord() {
         var divForDisplayWordToGuess = document.getElementById("divForDisplayWordToGuess");
-        wordToGuess = "aaa"; //TODO random word from an array/file
+        wordToGuess = "aaa"; // random word from an array/file
         for (var i = 0; i < wordToGuess.length; i++) {
             divForDisplayWordToGuess.innerHTML += "_ ";
             letterGuess[i] = false;
@@ -102,7 +103,7 @@
     function displayGuessedLetters() {
         usersWordToGuess = "";
         for (var i = 0; i < wordToGuess.length; i++) {
-            if(letterGuess[i]) {
+            if (letterGuess[i]) {
                 usersWordToGuess += wordToGuess.charAt(i) + " ";
             }
             else {
@@ -115,7 +116,7 @@
 
     function checkIfWin() {
         for (var i = 0; i < wordToGuess.length; i++) {
-            if(!letterGuess[i]){
+            if (!letterGuess[i]) {
                 return false;
             }
         }
