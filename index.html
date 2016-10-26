@@ -34,6 +34,9 @@
             console.log("Wysiadki: " + fails);
         }
         displayWord();
+        if(checkIfWin()) {
+            console.log("wygrales");
+        }
     }
 
     function setWord() {
@@ -73,6 +76,15 @@
         }
         document.getElementById("here").innerHTML = wordToDisplay;
         console.log(wordToDisplay);
+    }
+
+    function checkIfWin() {
+        for (var i = 0; i < wordToGuess.length; i++) {
+            if(!booleanArray[i]){
+                return false;
+            }
+        }
+        return true;
     }
 
 
