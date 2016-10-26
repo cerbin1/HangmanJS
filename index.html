@@ -14,6 +14,26 @@
     <div id="0" onclick="checkLetter(this)" class="letter">A</div>
     <div id="1" onclick="checkLetter(this)" class="letter">B</div>
     <div id="2" onclick="checkLetter(this)" class="letter">C</div>
+    <div id="3" onclick="checkLetter(this)" class="letter">D</div>
+    <div id="4" onclick="checkLetter(this)" class="letter">E</div>
+    <div id="5" onclick="checkLetter(this)" class="letter">F</div>
+    <div id="6" onclick="checkLetter(this)" class="letter">G</div>
+    <div id="7" onclick="checkLetter(this)" class="letter">H</div>
+    <div id="8" onclick="checkLetter(this)" class="letter">I</div>
+    <div id="9" onclick="checkLetter(this)" class="letter">J</div>
+    <div id="10" onclick="checkLetter(this)" class="letter">K</div>
+    <div id="11" onclick="checkLetter(this)" class="letter">L</div>
+    <div id="12" onclick="checkLetter(this)" class="letter">M</div>
+    <div id="13" onclick="checkLetter(this)" class="letter">N</div>
+    <div id="14" onclick="checkLetter(this)" class="letter">O</div>
+    <div id="15" onclick="checkLetter(this)" class="letter">P</div>
+    <div id="16" onclick="checkLetter(this)" class="letter">R</div>
+    <div id="17" onclick="checkLetter(this)" class="letter">S</div>
+    <div id="18" onclick="checkLetter(this)" class="letter">T</div>
+    <div id="19" onclick="checkLetter(this)" class="letter">U</div>
+    <div id="20" onclick="checkLetter(this)" class="letter">W</div>
+    <div id="21" onclick="checkLetter(this)" class="letter">Y</div>
+    <div id="22" onclick="checkLetter(this)" class="letter">Z</div>
 
     <img src="0.png" alt="error" id="hangmanImage">
 
@@ -22,7 +42,7 @@
     var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
     var hangmanImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png"];
     var letterGuess = [];
-    var characterArray = ['a', 'b', 'c'];
+    var characterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'y', 'z'];
     var usersWordToGuess = "";
     var wordToGuess;
     var fails = 0;
@@ -54,7 +74,7 @@
 
     function setWord() {
         var divForDisplayWordToGuess = document.getElementById("divForDisplayWordToGuess");
-        wordToGuess = "abcdefghijk"; //TODO random word from an array/file
+        wordToGuess = "abcdefghijklmnoprstuwyz"; //TODO random word from an array/file
         for (var i = 0; i < wordToGuess.length; i++) {
             divForDisplayWordToGuess.innerHTML += "_ ";
             letterGuess[i] = false;
