@@ -11,9 +11,11 @@
 
     <div id="here"></div>
 
-    <div id="0" onclick="getLetter(this)" class="letter">A</div>
-    <div id="1" onclick="getLetter(this)" class="letter">B</div>
-    <div id="2" onclick="getLetter(this)" class="letter">C</div>
+    <div id="0" onclick="checkLetter(this)" class="letter">A</div>
+    <div id="1" onclick="checkLetter(this)" class="letter">B</div>
+    <div id="2" onclick="checkLetter(this)" class="letter">C</div>
+
+    <img src="0.png" alt="error" id="hangmanImage">
 
 </div>
 <script>
@@ -24,23 +26,34 @@
     var wordToDisplay = "";
     var wordToGuess;
     var fails = 0;
+    var endOfGame = false;
 
-    function getLetter(div) {
-        div.style.display = "none";
-        console.log(characterArray[parseInt(div.id)]);
-        if(!checkWord(characterArray[parseInt(div.id)])) {
-            fails++;
-            console.log("Wysiadki: " + fails);
+    function checkLetter(div) {
+        if (!endOfGame) {
+            div.style.display = "none";
+            console.log(characterArray[parseInt(div.id)]);
+            if (!checkWord(characterArray[parseInt(div.id)])) {
+                fails++;
+                document.getElementById("hangmanImage").src = hangmanImages[fails - 1];
+                console.log("Wysiadki: " + fails);
+                if (checkIfPlayerLose()) {
+                    console.log("Przegrana");
+                    endOfGame = true;
+                }
+            }
+            displayWord();
+            if (checkIfWin()) {
+                console.log("wygrales");
+            }
         }
-        displayWord();
-        if(checkIfWin()) {
-            console.log("wygrales");
+        else {
+            console.log("koniec gry");
         }
     }
 
     function setWord() {
         var dupa = document.getElementById("here");
-        wordToGuess = "abcabc"; //TODO random word from an array/file
+        wordToGuess = "eqwe"; //TODO random word from an array/file
         for (var i = 0; i < wordToGuess.length; i++) {
             dupa.innerHTML += "_ ";
             booleanArray[i] = false;
@@ -84,6 +97,10 @@
             }
         }
         return true;
+    }
+
+    function checkIfPlayerLose() {
+        return fails == 11;
     }
 
 
