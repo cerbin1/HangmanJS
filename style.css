@@ -41,3 +41,9 @@ button {
     height: 110px;
     border: 1px solid black;
 }
+
+#messages-to-user {
+    margin: 10px;
+    text-align: center;
+    font-size: 20px;
+}

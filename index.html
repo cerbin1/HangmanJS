@@ -37,6 +37,7 @@
         <div id="21" onclick="enterTheLetter(this)" class="letter">y</div>
         <div id="22" onclick="enterTheLetter(this)" class="letter">z</div>
     </div>
+    <div id="messages-to-user"></div>
     <img src="0.png" alt="error" id="hangmanImage">
 
 </div>
@@ -51,7 +52,7 @@
 
     function enterTheLetter(div) {
         if (endOfGame) {
-            console.log("koniec gry");
+            document.getElementById("messages-to-user").innerHTML = "Koniec gry! Wylosuj nowe słowo.";
         }
         else {
             div.style.display = "none";
@@ -90,7 +91,7 @@
                 isLetterAppears = true;
             }
             else {
-                console.log("Nie znaleziono literki w slowie");
+                document.getElementById("messages-to-user").innerHTML = "Nie znaleziono literki w słowie.";
             }
         }
         return isLetterAppears;
@@ -111,7 +112,6 @@
             }
         }
         document.getElementById("divForDisplayWordToGuess").innerHTML = usersWordToGuess;
-        console.log(usersWordToGuess);
     }
 
     function checkIfWin() {
