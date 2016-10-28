@@ -45,10 +45,10 @@
 <script>
     // Lepiej żeby to nie były funkcje globalne. Np w samowywołującej się funkcji.
 
-    var wordsArray = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"]; // TODO rename to "words"
+    var words = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
     var hangmanImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png"];
-    var letterGuess = []; // TODO rename to guessedLetters
-    var characterArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'y', 'z']; // TODO rename to characters
+    var guessedLetters = [];
+    var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'y', 'z'];
     var usersWordToGuess = "";
     var wordToGuess;
     var fails = 0;
@@ -57,8 +57,8 @@
     function checkLetter(div) {
         if (!endOfGame) { // TODO jak masz ifa i elsa to lepiej żeby nie było negacji
             div.style.display = "none";
-            console.log(characterArray[parseInt(div.id)]);
-            if (!isLetterInGuessedWord(characterArray[parseInt(div.id)])) { // TODO lepiej żeby nie było negacji jak jest if i else
+            console.log(characters[parseInt(div.id)]);
+            if (!isLetterInGuessedWord(characters[parseInt(div.id)])) { // TODO lepiej żeby nie było negacji jak jest if i else
                 fails++;
                 document.getElementById("hangmanImage").src = hangmanImages[fails - 1];
                 console.log("Wysiadki: " + fails);
@@ -83,10 +83,10 @@
 
     function setWord() {
         var divForDisplayWordToGuess = document.getElementById("divForDisplayWordToGuess");
-        wordToGuess = wordsArray[Math.round(Math.random() * 9)];
+        wordToGuess = words[Math.round(Math.random() * 9)];
         for (var i = 0; i < wordToGuess.length; i++) {
             divForDisplayWordToGuess.innerHTML += "_ ";
-            letterGuess[i] = false;
+            guessedLetters[i] = false;
         }
     }
 
@@ -94,7 +94,7 @@
         var booleanVariable = false; // TODO co to za chujowa nazwa XDDDDD
         for (var i = 0; i < wordToGuess.length; i++) {
             if (wordToGuess.charAt(i) === character) {
-                letterGuess[i] = true;
+                guessedLetters[i] = true;
                 booleanVariable = true; // TODO to mógłbyś po prostu return true;
             }
             else {
@@ -111,7 +111,7 @@
     function displayGuessedLetters() {
         usersWordToGuess = "";
         for (var i = 0; i < wordToGuess.length; i++) {
-            if (letterGuess[i]) {
+            if (guessedLetters[i]) {
                 usersWordToGuess += wordToGuess.charAt(i) + " ";
             }
             else {
@@ -124,13 +124,12 @@
 
     function checkIfWin() {
         for (var i = 0; i < wordToGuess.length; i++) {
-            if (!letterGuess[i]) {
+            if (!guessedLetters[i]) {
                 return false;
             }
         }
         return true;
     }
-
 
 
 </script>
