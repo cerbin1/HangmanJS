@@ -47,7 +47,6 @@
     var hangmanImages = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png"];
     var guessedLetters = [];
     var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'w', 'y', 'z'];
-    var usersWordToGuess = "";
     var wordToGuess;
     var fails = 0;
     var endOfGame = false;
@@ -107,7 +106,7 @@
     }
 
     function displayGuessedLetters() {
-        usersWordToGuess = "";
+        var usersWordToGuess = "";
         for (var i = 0; i < wordToGuess.length; i++) {
             if (guessedLetters[i]) {
                 usersWordToGuess += wordToGuess.charAt(i) + " ";
