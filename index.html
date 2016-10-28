@@ -13,29 +13,29 @@
 
     <div class="div-letters">
         <!-- TODO to powinno być wygenerowane -->
-        <div id="0" onclick="checkLetter(this)" class="letter">a</div>
-        <div id="1" onclick="checkLetter(this)" class="letter">b</div>
-        <div id="2" onclick="checkLetter(this)" class="letter">c</div>
-        <div id="3" onclick="checkLetter(this)" class="letter">d</div>
-        <div id="4" onclick="checkLetter(this)" class="letter">e</div>
-        <div id="5" onclick="checkLetter(this)" class="letter">f</div>
-        <div id="6" onclick="checkLetter(this)" class="letter">g</div>
-        <div id="7" onclick="checkLetter(this)" class="letter">h</div>
-        <div id="8" onclick="checkLetter(this)" class="letter">i</div>
-        <div id="9" onclick="checkLetter(this)" class="letter">j</div>
-        <div id="10" onclick="checkLetter(this)" class="letter">k</div>
-        <div id="11" onclick="checkLetter(this)" class="letter">l</div>
-        <div id="12" onclick="checkLetter(this)" class="letter">m</div>
-        <div id="13" onclick="checkLetter(this)" class="letter">n</div>
-        <div id="14" onclick="checkLetter(this)" class="letter">o</div>
-        <div id="15" onclick="checkLetter(this)" class="letter">p</div>
-        <div id="16" onclick="checkLetter(this)" class="letter">r</div>
-        <div id="17" onclick="checkLetter(this)" class="letter">s</div>
-        <div id="18" onclick="checkLetter(this)" class="letter">t</div>
-        <div id="19" onclick="checkLetter(this)" class="letter">u</div>
-        <div id="20" onclick="checkLetter(this)" class="letter">w</div>
-        <div id="21" onclick="checkLetter(this)" class="letter">y</div>
-        <div id="22" onclick="checkLetter(this)" class="letter">z</div>
+        <div id="0" onclick="enterTheLetter(this)" class="letter">a</div>
+        <div id="1" onclick="enterTheLetter(this)" class="letter">b</div>
+        <div id="2" onclick="enterTheLetter(this)" class="letter">c</div>
+        <div id="3" onclick="enterTheLetter(this)" class="letter">d</div>
+        <div id="4" onclick="enterTheLetter(this)" class="letter">e</div>
+        <div id="5" onclick="enterTheLetter(this)" class="letter">f</div>
+        <div id="6" onclick="enterTheLetter(this)" class="letter">g</div>
+        <div id="7" onclick="enterTheLetter(this)" class="letter">h</div>
+        <div id="8" onclick="enterTheLetter(this)" class="letter">i</div>
+        <div id="9" onclick="enterTheLetter(this)" class="letter">j</div>
+        <div id="10" onclick="enterTheLetter(this)" class="letter">k</div>
+        <div id="11" onclick="enterTheLetter(this)" class="letter">l</div>
+        <div id="12" onclick="enterTheLetter(this)" class="letter">m</div>
+        <div id="13" onclick="enterTheLetter(this)" class="letter">n</div>
+        <div id="14" onclick="enterTheLetter(this)" class="letter">o</div>
+        <div id="15" onclick="enterTheLetter(this)" class="letter">p</div>
+        <div id="16" onclick="enterTheLetter(this)" class="letter">r</div>
+        <div id="17" onclick="enterTheLetter(this)" class="letter">s</div>
+        <div id="18" onclick="enterTheLetter(this)" class="letter">t</div>
+        <div id="19" onclick="enterTheLetter(this)" class="letter">u</div>
+        <div id="20" onclick="enterTheLetter(this)" class="letter">w</div>
+        <div id="21" onclick="enterTheLetter(this)" class="letter">y</div>
+        <div id="22" onclick="enterTheLetter(this)" class="letter">z</div>
     </div>
     <img src="0.png" alt="error" id="hangmanImage">
 
@@ -51,11 +51,14 @@
     var fails = 0;
     var endOfGame = false;
 
-    function checkLetter(div) {
-        if (!endOfGame) { // TODO jak masz ifa i elsa to lepiej żeby nie było negacji
+    function enterTheLetter(div) {
+        if (endOfGame) {
+            console.log("koniec gry");
+        }
+        else {
             div.style.display = "none";
             console.log(characters[parseInt(div.id)]);
-            if (!isLetterInGuessedWord(characters[parseInt(div.id)])) { // TODO lepiej żeby nie było negacji jak jest if i else
+            if (!isLetterInGuessedWord(characters[parseInt(div.id)])) {
                 fails++;
                 document.getElementById("hangmanImage").src = hangmanImages[fails - 1];
                 console.log("Wysiadki: " + fails);
@@ -63,18 +66,12 @@
                     document.getElementById("divForDisplayWordToGuess").innerHTML = "Przegrales! Haslo to: " + wordToGuess;
                     endOfGame = true;
                 }
-                displayGuessedLetters();
             }
-            else {
-                displayGuessedLetters(); // TODO po co w elsie skoro i tak wykonujesz
-            }
+            displayGuessedLetters();
             if (checkIfWin()) {
                 document.getElementById("divForDisplayWordToGuess").innerHTML = "Wygrales! Haslo: " + wordToGuess;
                 endOfGame = true;
             }
-        }
-        else {
-            console.log("koniec gry");
         }
     }
 
