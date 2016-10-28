@@ -56,11 +56,9 @@
         }
         else {
             div.style.display = "none";
-            console.log(characters[parseInt(div.id)]);
             if (!isLetterInGuessedWord(characters[parseInt(div.id)])) {
                 fails++;
                 document.getElementById("hangmanImage").src = hangmanImages[fails - 1];
-                console.log("Wysiadki: " + fails);
                 if (checkIfPlayerLose()) {
                     document.getElementById("divForDisplayWordToGuess").innerHTML = "Przegrales! Haslo to: " + wordToGuess;
                     endOfGame = true;
