@@ -83,17 +83,17 @@
     }
 
     function isLetterInGuessedWord(character) {
-        var booleanVariable = false; // TODO co to za chujowa nazwa XDDDDD
+        var isLetterAppears = false;
         for (var i = 0; i < wordToGuess.length; i++) {
             if (wordToGuess.charAt(i) === character) {
                 guessedLetters[i] = true;
-                booleanVariable = true; // TODO to mógłbyś po prostu return true;
+                isLetterAppears = true;
             }
             else {
                 console.log("Nie znaleziono literki w slowie");
             }
         }
-        return booleanVariable;
+        return isLetterAppears;
     }
 
     function checkIfPlayerLose() {
