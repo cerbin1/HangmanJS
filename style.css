@@ -31,6 +31,7 @@ button {
     padding: 5px 10px;
     width: 35px;
     text-align: center;
+    display: block;
 }
 
 .letter:hover {

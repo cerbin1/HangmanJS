@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>Hangman</title>
 </head>
@@ -52,12 +53,35 @@
     var endOfGame = false;
 
     function generateDivWithCharacters() {
+        /*        for (var i = 0; i < 23; i++) {
+         var $div = $("<div>", {id: i.toString(), "class": "letter", text: characters[i], display: "block"});
+         //            $div.click(enterTheLetter(this));
+         //            $div.addEventListener('click', enterTheLetter(this));
+         $("#div-letters").append($div);
+         }
+         $div.click(enterTheLetter(this));*/
+        /*var d = document.createElement('div');
+         $(d).addClass("letter")
+         .html("333")
+         .appendTo($("#myDiv")) //main div
+         .click(function () {
+         $(this).remove();
+         });*/
+        /*jQuery('<div/>', {
+         id: i,
+         addEventListener('click', enterTheLetter(this)
+         ),
+         text: characters[i]
+         }).
+         appendTo('#div-letters');*/
+
         for (var i = 0; i < 23; i++) {
-            var newDiv = document.createElement("div");
+            var newDiv = document.createElement("div"); //TODO
             newDiv.id = "i";
             newDiv.className = "letter";
             newDiv.innerHTML = characters[i];
-            newDiv.onclick = "enterTheLetter(this)";
+            newDiv.addEventListener('click', enterTheLetter(this));
+//            newDiv.onclick = enterTheLetter(newDiv);
             document.getElementById("div-letters").appendChild(newDiv);
             //document.body.appendChild(newDiv);
         }
