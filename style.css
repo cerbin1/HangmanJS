@@ -37,7 +37,7 @@ button {
     background-color: darkgray;
 }
 
-.div-letters {
+#div-letters {
     height: 110px;
     border: 1px solid black;
 }
