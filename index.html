@@ -77,17 +77,18 @@
 
         for (var i = 0; i < 23; i++) {
             var newDiv = document.createElement("div"); //TODO
-            newDiv.id = "i";
+            newDiv.id = i;
             newDiv.className = "letter";
             newDiv.innerHTML = characters[i];
-            newDiv.addEventListener('click', enterTheLetter(this));
-//            newDiv.onclick = enterTheLetter(newDiv);
+            newDiv.addEventListener('click', enterTheLetter);
+
             document.getElementById("div-letters").appendChild(newDiv);
             //document.body.appendChild(newDiv);
         }
     }
 
-    function enterTheLetter(div) {
+    function enterTheLetter() {
+        var div = this;
         if (endOfGame) {
             document.getElementById("messages-to-user").innerHTML = "Koniec gry! Wylosuj nowe słowo.";
         }
