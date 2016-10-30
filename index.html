@@ -13,35 +13,9 @@
     <div id="divForDisplayWordToGuess"></div>
 
     <div id="div-letters">
-        <!-- TODO to powinno być wygenerowane --><!--
-        <div id="0" onclick="enterTheLetter(this)" class="letter">a</div>
-        <div id="1" onclick="enterTheLetter(this)" class="letter">b</div>
-        <div id="2" onclick="enterTheLetter(this)" class="letter">c</div>
-        <div id="3" onclick="enterTheLetter(this)" class="letter">d</div>
-        <div id="4" onclick="enterTheLetter(this)" class="letter">e</div>
-        <div id="5" onclick="enterTheLetter(this)" class="letter">f</div>
-        <div id="6" onclick="enterTheLetter(this)" class="letter">g</div>
-        <div id="7" onclick="enterTheLetter(this)" class="letter">h</div>
-        <div id="8" onclick="enterTheLetter(this)" class="letter">i</div>
-        <div id="9" onclick="enterTheLetter(this)" class="letter">j</div>
-        <div id="10" onclick="enterTheLetter(this)" class="letter">k</div>
-        <div id="11" onclick="enterTheLetter(this)" class="letter">l</div>
-        <div id="12" onclick="enterTheLetter(this)" class="letter">m</div>
-        <div id="13" onclick="enterTheLetter(this)" class="letter">n</div>
-        <div id="14" onclick="enterTheLetter(this)" class="letter">o</div>
-        <div id="15" onclick="enterTheLetter(this)" class="letter">p</div>
-        <div id="16" onclick="enterTheLetter(this)" class="letter">r</div>
-        <div id="17" onclick="enterTheLetter(this)" class="letter">s</div>
-        <div id="18" onclick="enterTheLetter(this)" class="letter">t</div>
-        <div id="19" onclick="enterTheLetter(this)" class="letter">u</div>
-        <div id="20" onclick="enterTheLetter(this)" class="letter">w</div>
-        <div id="21" onclick="enterTheLetter(this)" class="letter">y</div>
-        <div id="22" onclick="enterTheLetter(this)" class="letter">z</div>-->
-
     </div>
     <div id="messages-to-user"></div>
     <img src="0.png" alt="error" id="hangmanImage">
-
 </div>
 <script>
     var words = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
@@ -53,28 +27,6 @@
     var endOfGame = false;
 
     function generateDivWithCharacters() {
-        /*        for (var i = 0; i < 23; i++) {
-         var $div = $("<div>", {id: i.toString(), "class": "letter", text: characters[i], display: "block"});
-         //            $div.click(enterTheLetter(this));
-         //            $div.addEventListener('click', enterTheLetter(this));
-         $("#div-letters").append($div);
-         }
-         $div.click(enterTheLetter(this));*/
-        /*var d = document.createElement('div');
-         $(d).addClass("letter")
-         .html("333")
-         .appendTo($("#myDiv")) //main div
-         .click(function () {
-         $(this).remove();
-         });*/
-        /*jQuery('<div/>', {
-         id: i,
-         addEventListener('click', enterTheLetter(this)
-         ),
-         text: characters[i]
-         }).
-         appendTo('#div-letters');*/
-
         for (var i = 0; i < 23; i++) {
             var newDiv = document.createElement("div"); //TODO
             newDiv.id = i;
@@ -83,7 +35,6 @@
             newDiv.addEventListener('click', enterTheLetter);
 
             document.getElementById("div-letters").appendChild(newDiv);
-            //document.body.appendChild(newDiv);
         }
     }
 
