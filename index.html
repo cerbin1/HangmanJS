@@ -9,13 +9,11 @@
 <body onload="setWord()">
 <div class="container">
     <button onclick="startNewGame()">Nowe slowo</button>
-
     <div id="divForDisplayWordToGuess"></div>
-
-    <div id="div-letters">
-    </div>
+    <div id="div-letters"></div>
     <div id="messages-to-user"></div>
     <img src="0.png" alt="error" id="hangmanImage">
+
 </div>
 <script>
     var words = ["zubr", "kot", "pies", "szczur", "hipopotam", "chomik", "zyrafa", "slon", "polacy", "kon"];
@@ -28,7 +26,7 @@
 
     function generateDivWithCharacters() {
         for (var i = 0; i < 23; i++) {
-            var newDiv = document.createElement("div"); //TODO
+            var newDiv = document.createElement("div");
             newDiv.id = i;
             newDiv.className = "letter";
             newDiv.innerHTML = characters[i];
